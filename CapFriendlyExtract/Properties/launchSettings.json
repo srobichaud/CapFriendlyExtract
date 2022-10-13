@@ -2,7 +2,7 @@
   "profiles": {
     "CapFriendlyExtract": {
       "commandName": "Project",
-      "commandLineArgs": "2023"
+      "commandLineArgs": "https://www.capfriendly.com/browse/active/2021?stats-season=2023&display=expiry-year,length&hide=team,clauses,age,position,handed,expiry-status,skater-stats,goalie-stats"
     }
   }
 }

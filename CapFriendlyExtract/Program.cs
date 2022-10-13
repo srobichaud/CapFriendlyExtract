@@ -1,9 +1,9 @@
 ﻿using ClosedXML.Excel;
 using HtmlAgilityPack;
 
-string year = Environment.GetCommandLineArgs()[1];
+string param = Environment.GetCommandLineArgs()[1];
 
-string url = "https://www.capfriendly.com/browse/active/" + year;
+string url = param;
 
 decimal resultsPerPage = 50;
 
@@ -23,10 +23,15 @@ decimal amountOfPages = Math.Ceiling(t);
 using (var workbook = new XLWorkbook())
 {
     var worksheet = workbook.Worksheets.Add("data");
+    string symbol = "?";
+    if (url.Contains("?"))
+    {
+        symbol = "&";
+    }
     for (int i = 0; i < amountOfPages; i++)
     {
         int page = i + 1;
-        string urlPage = url + "?pg=" + page;
+        string urlPage = url + symbol + "pg=" + page;
         var htmlDoc2 = web.Load(urlPage);
         Console.WriteLine(urlPage);
 
